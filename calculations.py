@@ -88,10 +88,20 @@ def strict_order(trans, antisymm, antireflex):
 #Возведение в степень
 
 def pow_matrix(matrix, n):
-    if n < 1:
-        return 1
+    matrix = matrix.copy()
+    new_matrix = matrix.copy()
+    sum = 0
+    if n <= 1:
+        return matrix
     else:
-        return matrix * pow_matrix(matrix, n-1)
+        for i in range(len(matrix)):
+            for j in range(len(matrix[i])):
+                for l in range(len(matrix)):
+                    sum += matrix[i][l] * matrix[l][j]
+                
+                new_matrix[i][j] = 1 if sum > 0 else 0
+                sum = 0
+        return pow_matrix(new_matrix, n-1)
 
 def subset(a, b):
     for _, elemA in enumerate(a):

@@ -24,7 +24,7 @@ print("Антирефликсивность: ", _antireflex)
 
 print("Проверка на строгий порядок: ", strict_order(_transitivity, _antisymm, _antireflex))
 
-print("Антитранзитивность: ", not _transitivity)
+print("Антитранзитивность: ", not _transitivity) ##
 
 print("Заданая матрица в степени 2: ", pow_matrix(matrix, 2))
 print("Заданая матрица в степени 3: ", pow_matrix(matrix, 3))

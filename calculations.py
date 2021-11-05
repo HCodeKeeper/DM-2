@@ -1,6 +1,6 @@
 import numpy as np
 matrix = np.array([ [1, 0, 1, 0, 1],
-                    [0, 1, 1, 1, 0],
+                    [1, 0, 1, 1, 0],
                     [0, 1, 0, 0, 1],
                     [1, 0, 1, 0, 0],
                     [1, 0, 0, 0, 0]])
@@ -15,7 +15,17 @@ print("Отношение эквивалентности: ")
 def reflection():
     reflex = True
     for i in range(len(matrix)):
-        if matrix[i][i] != matrix[i-1][i-1] and matrix[i][i] != 1:
+        if matrix[i][i] == matrix[i-1][i-1] and matrix[i][i] == 1:
+            continue
+        else:
+            reflex = False
+        
+    return reflex
+
+def not_reflective():
+    reflex = True
+    for i in range(len(matrix)):
+        if matrix[i][i] == matrix[i-1][i-1] and matrix[i][i] == 0:
             reflex = False
     return reflex
 

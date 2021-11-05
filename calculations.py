@@ -29,17 +29,6 @@ def symmetry():
     return symm
 
 
-def transitivity():
-    trans = True
-    total = matrix*matrix
-    for i in range(len(matrix)):
-        for j in range(len(matrix[i])):
-            if matrix[i][j] != total[i][j]:
-                trans = False
-
-    return trans
-
-
 def equality_relation(trans, symm, reflex):
     result = True
     if trans == False or symm == False or reflex == False:
@@ -92,7 +81,16 @@ def pow_matrix(matrix, n):
     if n < 1:
         return 1
     else:
-        return matrix * pow_matrix(n-1)
+        return matrix * pow_matrix(matrix, n-1)
 
+def subset(a, b):
+    for _, elemA in enumerate(a):
+        if elemA not in b:
+            return False
+    return True
 
 #Транзитивность
+
+def is_transitive(matrix, elems=5):
+    result_matrix = pow_matrix(matrix, elems)
+    return subset(matrix, result_matrix)

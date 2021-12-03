@@ -1,4 +1,5 @@
 from calculations import *
+from pprint import pprint
 
 _symmetry = symmetry()
 _transitivity = is_transitive(matrix)
@@ -26,5 +27,17 @@ print("Проверка на строгий порядок: ", strict_order(_tra
 
 print("Антитранзитивность: ", not _transitivity) ##
 
-print("Заданая матрица в степени 2: ", pow_matrix(matrix, 2))
-print("Заданая матрица в степени 3: ", pow_matrix(matrix, 3))
+print("Заданая матрица в степени 2: ")
+pprint(pow_matrix(matrix, 2))
+
+print("Заданая матрица в степени 3: ")
+pprint(pow_matrix(matrix, 3))
+
+print("Рефлексивное замыкание")
+pprint(reflective_closure(matrix))
+
+print("Симметричное замыкание")
+pprint(symmetric_closure(matrix))
+
+print("Транзитивное замыкание")
+pprint(transitive_closure(matrix))
